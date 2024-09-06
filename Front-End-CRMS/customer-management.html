@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRMS (Criminal Records)</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Global Theme Colors */
+      :root {
+        --primary-color: #2c3e50; /* Dark Blue */
+        --secondary-color: #ecf0f1; /* Light Gray */
+        --accent-color: #e74c3c; /* Red */
+        --text-color: #ffcc00; /* Bright Yellow */
+        --background-color: #1a252f; /* Deep Navy */
+        --header-font-color: #00ffcc; /* Teal for headings */
+        --paragraph-font-color: #ffffff; /* White for paragraphs */
+        --footer-bg-color: #2c3e50; /* Dark Blue */
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+      }
+
+      .topnav {
+        background-color: var(--primary-color);
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .topnav-right a {
+        float: right;
+        color: var(--text-color);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        padding: 20px;
+      }
+
+      h1, h2 {
+        color: var(--header-font-color);
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      .header-container a:hover {
+        color: var(--secondary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 15px;
+      }
+
+      nav ul li a {
+        color: var(--secondary-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      nav ul li a:hover {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+      }
+
+      .header-subtitle {
+        color: var(--paragraph-font-color);
+        font-size: 1.2em;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      #main-content {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: var(--footer-bg-color);
+        border-radius: 10px;
+        color: var(--header-font-color);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: var(--secondary-color);
+      }
+
+      input,
+      textarea,
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 8px; /* Reduced margin */
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+      form br {
+        display: none; /* Removes extra space caused by <br> */
+      }
+
+      button {
+        padding: 10px;
+        font-size: 18px;
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: var(--accent-color);
+      }
+
+      h4 {
+        color: var(--header-font-color);
+      }
+
+      #recordDetailsOutput {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+
+      footer {
+        background-color: var(--footer-bg-color);
+        color: var(--paragraph-font-color);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer-links a {
+        color: var(--secondary-color);
+        margin-right: 10px;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <div class="topnav-right">
+        <a id="logout">Logout</a>
+      </div>
+    </div>
+    <header>
+      <div class="header-container">
+        <h1>Crime Record Management System</h1>
+        <nav>
+          <ul class="header-sections">
+            <li><a href="./staff-management.html">Staff Management</a></li>
+            <li><a href="./restaurant-status.html">Crime Case Status</a></li>
+            <li><a href="./special-announcement.html">New Crime Updates</a></li>
+            <li><a href="./customer-booking.html">Crime Case Booking</a></li>
+            <li><a href="./customer-management.html">Criminal Records</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-subtitle">
+        <p>Judiciary Is Our Main Priority!</p>
+      </div>
+      <a href="./index.html">
+        <h3>Back to Home</h3>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section id="criminal-records-management">
+        <h2>Criminal Records</h2>
+        <div class="container">
+          <form id="recordForm">
+            <label for="criminalName">Criminal Name:</label>
+            <input type="text" id="criminalName" name="criminalName" placeholder="Enter the Criminal Name" required /><br /><br />
+            <label for="crimeType">Type of Crime:</label>
+            <input type="text" id="crimeType" name="crimeType" placeholder="Enter the Theft type" required /><br /><br />
+            <label for="caseStatus">Case Status:</label>
+            <select id="caseStatus" name="caseStatus" required>
+              <option value="open">Open</option>
+              <option value="closed">Closed</option>
+              <option value="pending">Pending</option>
+            </select><br /><br />
+            <label for="sentenceLength">Sentence Length:</label>
+            <input type="text" id="sentenceLength" name="sentenceLength" placeholder="Enter the Sentence Length" required /><br /><br />
+            <button type="button" id="generateResultsBtn">Generate Record Details</button>
+          </form>
+          <h4>Record Details:</h4>
+          <pre id="recordDetailsOutput">Name: John Doe
+Type of Crime: Theft
+Case Status: Open
+Sentence Length: 5 years</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p>&copy; 2024 Our Crime Record Management System. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="./staff-management.html">Staff</a>
+          <a href="./restaurant-status.html">Status</a>
+          <a href="./special-announcement.html">Updates</a>
+          <a href="./customer-booking.html">Bookings</a>
+          <a href="./customer-management.html">Records</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/recordManagementScript.js"></script>
+    <script type="module" src="./homepage.js"></script>
+  </body>
+</html>
