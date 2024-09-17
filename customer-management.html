@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRMS (Criminal Records)</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Global Theme Colors */
+      :root {
+        --primary-color: #2c3e50; /* Dark Blue */
+        --secondary-color: #ecf0f1; /* Light Gray */
+        --accent-color: #e74c3c; /* Red */
+        --text-color: #ffcc00; /* Bright Yellow */
+        --background-color: #1a252f; /* Deep Navy */
+        --header-font-color: #00ffcc; /* Teal for headings */
+        --paragraph-font-color: #ffffff; /* White for paragraphs */
+        --footer-bg-color: #2c3e50; /* Dark Blue */
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+      }
+
+      .topnav {
+        background-color: var(--primary-color);
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .topnav-right a {
+        float: right;
+        color: var(--text-color);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        padding: 20px;
+      }
+
+      h1, h2 {
+        color: var(--header-font-color);
+      }
+
+      h3 {
+        color: var(--paragraph-font-color);
+        margin: 10px;
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      .header-container a:hover {
+        color: var(--secondary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 15px;
+      }
+
+      nav ul li a {
+        color: var(--secondary-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      nav ul li a:hover {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+      }
+
+      .header-subtitle {
+        color: var(--paragraph-font-color);
+        font-size: 1.2em;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      #main-content {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: var(--footer-bg-color);
+        border-radius: 10px;
+        color: var(--header-font-color);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+        color: var(--secondary-color);
+      }
+
+      input,
+      textarea,
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 8px; /* Reduced margin */
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+      form br {
+        display: none; /* Removes extra space caused by <br> */
+      }
+
+      button {
+        padding: 10px;
+        font-size: 18px;
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: var(--accent-color);
+      }
+
+      h5 {
+        color: var(--background-color);
+        font-size: 18px;
+      }
+
+      #recordDetailsOutput {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+
+      h4 {
+        color: var(--accent-color);
+      }
+
+      footer {
+        background-color: var(--footer-bg-color);
+        color: var(--paragraph-font-color);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer-links a {
+        color: var(--secondary-color);
+        margin-right: 10px;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .container1 {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+        color: var(--header-font-color);
+        margin-top: 20px; /* Add space between buttons and the second container */
+        width: 90%;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: var(--footer-bg-color);
+        border-radius: 10px;
+        color: var(--header-font-color);
+        display: flex;
+        flex-wrap: wrap; /* Allows wrapping for responsiveness */
+        justify-content: space-between; /* Distributes buttons with space */
+      }
+
+      .container button {
+        flex-basis: 30%; /* Each of the first three buttons take 30% width */
+        margin-bottom: 10px; /* Adds space at the bottom for wrapping on small screens */
+        height: 70px;
+      }
+
+      #stafffetchbtn {
+        margin-left: 195px;/* This makes the fourth button span the full width */
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <div class="topnav-right">
+        <a id="logout" href="./index (2).html">Logout</a>
+      </div>
+    </div>
+    <header>
+      <div class="header-container">
+        <h1>Crime Record Management System</h1>
+        <nav>
+          <ul class="header-sections">
+            <li><a href="./staff-management.html">Staff Management</a></li>
+            <li><a href="./restaurant-status.html">Crime Case Status</a></li>
+            <li><a href="./special-announcement.html">Officer Allotment</a></li>
+            <li><a href="./customer-booking.html">Crime Case Booking</a></li>
+            <li><a href="./customer-management.html">Criminal Records</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-subtitle">
+        <p>Judiciary Is Our Main Priority!</p>
+      </div>
+      <a href="./index.html">
+        <h4>Back to Home</h4>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section id="criminal-records-management">
+        <h2>Criminal Records</h2>
+        <div class="container">
+          <h3 id="h123">Click Specific button to retrieve Required data</h3>
+          <button type="submit" id="bookingfetchbtn">Crime Booking</button>
+          <button type="submit" id="statusfetchbtn">Crime Case Status</button>
+          <button type="submit" id="allotmentfetchbtn">Officer Allotment Updates</button>
+          <button type="submit" id="stafffetchbtn">Staff Managements</button>
+          <div class="container1">
+            <div id="root">
+              <h5>Ready to fetch the data's </h5>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p id="white">&copy; 2024 Our Crime Record Management System. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="./staff-management.html">Staff</a>
+          <a href="./restaurant-status.html">Status</a>
+          <a href="./special-announcement.html">Allotment</a>
+          <a href="./customer-booking.html">Bookings</a>
+          <a href="./customer-management.html">Records</a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="js/customerManagementScript.js"></script>
+  </body>
+</html>

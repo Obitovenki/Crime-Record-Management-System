@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRMS (Staff Management)</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Global Theme Colors */
+      :root {
+        --primary-color: #2c3e50; /* Dark Blue */
+        --secondary-color: #ecf0f1; /* Light Gray */
+        --accent-color: #e74c3c; /* Red */
+        --text-color: #ffcc00; /* Bright Yellow */
+        --background-color: #1a252f; /* Deep Navy */
+        --header-font-color: #00ffcc; /* Teal for headings */
+        --paragraph-font-color: #ffffff; /* White for paragraphs */
+        --footer-bg-color: #2c3e50; /* Dark Blue */
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+      }
+
+      .button-container {
+        text-align: right;
+      }
+
+
+      
+      #addRoleBtn {
+        
+        margin-top: 10px; /* Adds some space between the input and button */
+      }
+
+      .topnav {
+        background-color: var(--primary-color);
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .topnav-right a {
+        float: right;
+        color: var(--text-color);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        padding: 20px;
+      }
+
+      h1, h2 {
+        color: var(--header-font-color);
+      }
+
+      h4 {
+        color: var(--accent-color);
+      }
+
+      label {
+        color: var(--accent-color);
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      .header-container a:hover {
+        color: var(--secondary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 15px;
+      }
+
+      nav ul li a {
+        color: var(--secondary-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      nav ul li a:hover {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+      }
+
+      .alert {
+        width: 100%;
+        background: rgb(0, 255, 106);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 900;
+        display: none;
+      }
+
+      .header-subtitle {
+        color: var(--paragraph-font-color);
+        font-size: 1.2em;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      #main-content {
+        padding: 20px;
+      }
+
+      .container {
+        background-color: var(--primary-color);
+        padding: 20px;
+        border-radius: 10px;
+        color: var(--paragraph-font-color);
+      }
+
+      footer {
+        background-color: var(--footer-bg-color);
+        color: var(--paragraph-font-color);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer-links a {
+        color: var(--secondary-color);
+        margin-right: 10px;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Modal Styling */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .modal-content {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+      }
+
+      .button-container {
+        text-align: right;
+      }
+
+      .close-btn {
+        color: var(--accent-color);
+        float: right;
+        font-size: 28px;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topnav">
+      <div class="topnav-right">
+        <a id="logout" href="./index (2).html">Logout</a>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-container">
+        <h1>Crime Record Management System</h1>
+        <nav>
+          <ul class="header-sections">
+            <li><a href="./staff-management.html">Staff Management</a></li>
+            <li><a href="./restaurant-status.html">Crime Case Status</a></li>
+            <li><a href="./special-announcement.html">Officer Allotment</a></li>
+            <li><a href="./customer-booking.html">Crime Case Booking</a></li>
+            <li><a href="./customer-management.html">Criminal Records</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-subtitle">
+        <p>Judiciary Is Our Main Priority!</p>
+      </div>
+      <a href="./index.html">
+        <h4>Back to Home</h4>
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section id="staff-management">
+        <h2>Staff Management</h2>
+        <div class="container">
+          <form id="staff-managements">
+            <h3>Staff ID</h3>
+            <input type="text" id="staffIdInput" placeholder="Enter the staff ID" />
+            <h3>Staff Name</h3>
+            <input type="text" id="nameInput" placeholder="Enter the staff name" />
+            <h3>Staff Role</h3>
+            <input type="text" id="roleInput" placeholder="Enter the staff role" />
+            <h3>Staff Department</h3>
+            <input type="text" id="deptInput" placeholder="Enter the staff department" />
+            <div class="button-container">
+              <button type="submit" id="addRoleBtn">Add Staff</button>
+            </div>
+            <h3>Staff Information:</h3>
+            <ul id="roleList"></ul>
+            <p id="roleCount">Total Record stored: 0</p>
+          </form>
+        </div>
+        <div class="alert">Staff information saved successfully!</div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p>&copy; 2024 Crime Record Management System. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="./staff-management.html">Staff</a>
+          <a href="./restaurant-status.html">Status</a>
+          <a href="./special-announcement.html">Allotment</a>
+          <a href="./customer-booking.html">Bookings</a>
+          <a href="./customer-management.html">Records</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="errorModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <p id="errorMessage"></p>
+      </div>
+    </div>
+
+    <script type="module" src="js/staffManagementScript.js"></script>
+  </body>
+</html>
